@@ -13,7 +13,7 @@ import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 
 public class BruteForceCheckAlgorithm {
 
-    public static Petrinet bfcAlgorithm(XLogInfo loginfo, XLog log) {
+    public static Petrinet bfcAlgorithm(XLogInfo loginfo, XLog log, HashMap<String, Object>parameter ) {
         HashMap eventFrequency = UtilMethods.CountEventFrequency(loginfo, log);
 
         //generate the combination set of activities
@@ -40,7 +40,7 @@ public class BruteForceCheckAlgorithm {
         ArrayList<ArrayList<Object>> plain_log = UtilMethods.TransferLogArrayList(log);
         // initial the checking object with threshold
         //CheckPlace check_place = new CheckPlace(0.8f,0.2f,0.2f,0.2f, plain_log.size(),plain_log);
-        CheckPlace check_place = new CheckPlace(0.5f,0.5f,0.5f,0.5f, plain_log.size(),plain_log);
+        CheckPlace check_place = new CheckPlace((float)parameter.get("Fitness"),(float)parameter.get("Overfed"),(float)parameter.get("Underfed"),0.2f, plain_log.size(),plain_log);
 
         // gain all remaining BFC place
         ArrayList<BFCPlace> new_BFC_place = new ArrayList<>();

@@ -1,4 +1,5 @@
-package org.processmining.plugins.gettingstarted;
+package org.processmining.plugins.BruteForceCheck;
+// This part is from heuristic miner
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
